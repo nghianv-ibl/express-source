@@ -11,7 +11,8 @@ const express = require('express'),
 	app = express(),
 	server = require('http').Server(app),
 
-	Router = require('./Router/Router');
+	database = require('./Database/Database'),
+	router = require('./Router/Router');
 
 class Server {
 	constructor() {
@@ -37,21 +38,24 @@ class Server {
 				input: process.stdin,
 				output: process.stdout
 			}).on('SIGINT', () => {
+				database.close();
 				process.exit(0);
 			});
 		}
 
 		process.on('SIGINT', () => {
+			database.close();
 			process.exit(0);
 		});
 	}
 
 	initDatabase() {
-
+		database.open();
 	}
 
 	initRoute() {
-		new Router(app);
+		router.initRouter(app);
+		/* Global Info */
 		app.get('/', (req, res) => {
 			res.end('Server is listening request!');
 		});

@@ -1,10 +1,10 @@
 const homeController = require('./../Controller/Home');
 
 class Router {
-	constructor(expressApp) {
+	initRouter(expressApp) {
 		expressApp.use('/home', homeController);
 	}
 }
 
-module.exports = Router;
+module.exports = new Router();
 
