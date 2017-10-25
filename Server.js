@@ -53,7 +53,7 @@ class Server {
 	initRoute() {
 		new Router(app);
 		app.get('/', (req, res) => {
-			res.end('Server is listening resquest!');
+			res.end('Server is listening request!');
 		});
 	}
 
