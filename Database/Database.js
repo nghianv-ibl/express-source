@@ -22,7 +22,7 @@ class Database {
 				})
 				.catch(error => {
 					logger.error(`Connect fail to database: ${connectionInfo.database}`);
-					logger.error(`Error info: \n\t ${error}`);
+					logger.error(`Error info: \n====> ${error.message}`);
 				});
 		});
 	}
