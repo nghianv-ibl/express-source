@@ -1,7 +1,7 @@
 const winston = require('winston'),
 	dateformat = require('dateformat');
 
-const logger = new winston.Logger({
+winston.configure({
 	transports: [
 		new winston.transports.File({
 			filename: './Log/Server.log',
@@ -15,8 +15,8 @@ const logger = new winston.Logger({
 	exitOnError: false
 });
 
-if (process.env.NODE_ENV !== 'production') {
-	logger.add(new winston.transports.Console({
+if(process.env.NODE_ENV !== 'production') {
+	winston.add(winston.transports.Console,{
 		handleExceptions: true,
 		json: false,
 		colorize: true,
@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== 'production') {
 				(options.meta && Object.keys(options.meta).length ? '\n\t' + JSON.stringify(options.meta) : '')
 			);
 		}
-	}));
+	});
 }
 
-module.exports = logger;
+module.exports = winston;

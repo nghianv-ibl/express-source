@@ -57,7 +57,7 @@ class Server {
 		router.initRouter(app);
 		/* Global Info */
 		app.get('/', (req, res) => {
-			res.end('Server is listening request!');
+			res.send('<h1 style="text-align: center; margin-top: 40vh">Server is listening request!</h1>');
 		});
 	}
 
@@ -67,6 +67,7 @@ class Server {
 
 	start() {
 		server.listen(config.PORT, () => {
+			console.log('Test Console');
 			logger.info(`Server listen on port ${config.PORT}`);
 		});
 	}

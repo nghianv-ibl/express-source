@@ -1,11 +1,11 @@
 require('console-stamp')(console, {
 	pattern: 'HH:MM:ss.l',
-	datePrefix: '',
-	dateSuffix: '',
-	metadata: '[' + process.pid + ']',
+	datePrefix: '<<== ',
+	dateSuffix: ' ==>>',
+	metadata: '3==D~~~',
 	colors: {
-		stamp: ['black', 'bgGreen', 'underline'],
+		stamp: ['white', 'bgBlue', 'underline'],
 		label: 'yellow',
-		metadata: 'green'
+		metadata: 'red'
 	}
 });
