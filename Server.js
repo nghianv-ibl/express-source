@@ -1,6 +1,7 @@
 require('dotenv').config();
 require('./Common/Util/Console');
 
+
 const express = require('express'),
 	morgan = require('morgan'),
 	bodyParser = require('body-parser'),
@@ -12,7 +13,8 @@ const express = require('express'),
 	server = require('http').Server(app),
 
 	database = require('./Database/Database'),
-	router = require('./Router/Router');
+	router = require('./Router/Router'),
+	web3 = require('./Common/Util/Web3');
 
 class Server {
 	constructor() {
@@ -67,7 +69,6 @@ class Server {
 
 	start() {
 		server.listen(config.PORT, () => {
-			console.log('Test Console');
 			logger.info(`Server listen on port ${config.PORT}`);
 		});
 	}

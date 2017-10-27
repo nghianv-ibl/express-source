@@ -13,5 +13,6 @@ module.exports = {
 			db: null,
 			enable: process.env.DB_ENABLE || 'true'
 		}
-	]
+	],
+	WEB3_HTTP_PROVIDER: 'http://localhost:8545'
 };
