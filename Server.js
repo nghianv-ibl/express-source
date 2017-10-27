@@ -57,7 +57,7 @@ class Server {
 		router.initRouter(app);
 		/* Global Info */
 		app.get('/', (req, res) => {
-			res.send('<h1 style="text-align: center; margin-top: 40vh">Server is listening request!</h1>');
+			res.send('<h1 style="text-align: center; margin-top: 40vh; background-color:gray">Server is listening request!</h1>');
 		});
 	}
 
